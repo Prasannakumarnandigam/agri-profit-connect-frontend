@@ -10,7 +10,7 @@ function Login({ setUser }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('https://agri-profit-backend.onrender.com/auth/login', { email, password });
+            const res = await axios.post('http://localhost:5000/auth/login', { email, password });
             setUser(res.data);
             navigate(res.data.user_type === 'farmer' ? '/farmer-dashboard' : '/agency-dashboard');
         } catch (err) {
