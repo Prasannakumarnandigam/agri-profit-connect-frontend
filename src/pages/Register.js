@@ -7,15 +7,14 @@ function Register() {
         name: '', email: '', password: '', phone: '', user_type: 'farmer', location: ''
     });
     const navigate = useNavigate();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/auth/register', formData);
+            await axios.post('https://agri-profit-backend.onrender.com/auth/register', formData);
             alert('Registration successful! Please login.');
             navigate('/login');
         } catch (err) {
-            alert(err.response.data.error);
+            alert(err.response?.data?.error || 'Registration failed');
         }
     };
 
